@@ -4,10 +4,14 @@ const wordinput = document.getElementById("userword");
 addbtn.addEventListener("click",addWordToDb)
 
 function addWordToDb(){
-   let word = wordinput.innerText;
+   let word ={
+     userword: wordinput.value
+   }
+   console.log("User entry",word)
    fetch("/api/word",{
      method:"POST",
-     body: word,
+     headers: { "Content-Type": "application/json" },
+     body: JSON.stringify(word),
    }).then(response => {
      console.log("Word added to List",response)
    }).catch(err => {

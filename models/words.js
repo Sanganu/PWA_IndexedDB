@@ -8,21 +8,25 @@ const wordSchema = new Schema(
     word: {
       type: String,
       trim: true,
+      unique:true,
       required: "Enter a name for transaction"
     },
-    synonym: [{
+    syllable: [{
       type: String,
       required: "Enter an amount"
     }],
     partsOfSpeech:{
       type:String,
     },
-    examples:[{
+    stems:[{
       type:String
     }],
     definition:[{
       type:String
     }],
+    apiuuid:{
+      type:String
+    },
     dateCreated: {
       type: Date,
       default: Date.now
