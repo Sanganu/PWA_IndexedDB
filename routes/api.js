@@ -32,7 +32,7 @@ router.post("/api/word", (req, res) => {
                 }
                 else {
                   console.log("err", error);
-                  res.error(error)
+                  res.status(404).json(error);
                 }
               })
 
